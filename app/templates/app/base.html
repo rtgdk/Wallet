@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% load static %}
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href={% static 'images/logo_spdx.jpg' %}>
+
+    <title >Wallet {% block title %}{% endblock %}</title>
+
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet" type="text/css">
+    <!--<link href="{% static 'css/w3.css' %}" rel="stylesheet" type="text/css">-->
+    
+ {% block head_block %}{% endblock %}
+<style>
+.arrow {
+    font-size: 12px;
+}
+.container .jumbotron {
+padding-left: 0px; !important
+}
+@media (min-width: 1281px){
+.container {
+    width: 1370px;
+}
+}
+@media (min-width: 992px) and (max-width: 1281px){
+.container {
+    width: 970px;
+}
+}
+@media (min-width: 768px) and (max-width: 992px){
+.container {
+    width: 750px;
+}
+}
+.table > tbody > tr > td {
+  vertical-align: middle;
+  font-size: 16.5px;
+} 
+
+input[type=search] {
+            background: white;
+            font-weight: bold;
+            border-color: #337ab7;
+            border-style: solid;
+            border-width: 2px 2px 2px 4px;
+            outline: none;
+            background-color: white;
+        background-image:  url({% static 'images/searchicon.png' %});
+        background-position: 4px 4px; 
+        background-repeat: no-repeat;
+            padding: 0px 20px 0px 30px;
+            width: 250px;
+        }
+      /*Css to target the dropdownbox*/
+ul.ui-autocomplete {
+            background: white;
+            color: #0084b4; !important;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            width: 250px;
+}
+li.ui-menu-item {
+            font-size:25px;
+}
+.navbar-inverse {
+    background-color: #000000;
+    border-color: #080808;
+}
+.navbar-inverse .navbar-brand {
+    color: #fff;
+    background-color: transparent;
+}
+.h4{
+  color:#337ab7;; !important;
+}
+#searchic {
+    background-image: url({% static 'images/searchicon.png' %});
+}
+</style>
+    </head>
+  <body>
+
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/app/">Wallet</a>
+             
+        </div>
+        <!--<form class="navbar-form navbar-centre">
+            <div class="form-group">
+              <input type="search" id="search" placeholder="Search..." class="form-control">
+            </div>
+        </form>-->
+        <div id="navbar" class="navbar-collapse collapse">
+        <div class="col-lg-1"></div>
+        <a href="/app/update/" class="col-lg-2"> <button type="submit" class="btn btn-md btn-info " >Update</button> </a>
+ <a href="/app/upload/" class="col-lg-2"> <button type="submit" class="btn btn-md btn-danger " >Upload</button> </a>
+ <a href="/app/add/" class="col-lg-2"> <button type="submit" class="btn btn-md btn-warning "  >Add</button> </a>
+ <a href="/app/download/" class="col-lg-2"> <button type="submit" class="btn btn-md btn-success "  >Download Excel</button> </a>
+{% if request.user.is_superuser %}
+ <a href="/app/logout/" class="col-lg-2"> <button type="submit" class="btn btn-md btn-primary "  >Logout</button> </a>
+ {% else %}
+ <a href="/app/login/" class="col-lg-2"> <button type="submit" class="btn btn-md btn-primary "  >Login</button> </a>
+{% endif %}
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    {% block body1 %} {% endblock %}
+      <hr>
+     
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+        <!--<script>
+        $(document).ready(function () {
+                $("#search").autocomplete({
+                    source: "/app/search/",
+                });
+        });
+        </script>-->
+    {% block script_block %}{% endblock %}
+  </body>
+</html>

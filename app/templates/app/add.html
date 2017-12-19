@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block body1 %}
+
+
+<link href="{% static 'css/w3.css' %}" rel="stylesheet" type="text/css">
+<div id="container1" class="container" style="padding-left: 25%;">
+    <h4 >{{ error }}</h4>
+<form id="user_form" role="form"  class="form-horizontal"  method="post" action="/app/add/" enctype="multipart/form-data">
+  {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+        <div class="text-danger">{{ field.errors }}</div>
+        <label class="control-label col-sm-2" >{{ field.label_tag }}</label>
+          <div class="col-sm-5">
+    {{ field }}
+    </div>
+        </div>
+  {% endfor %}
+  <div class="form-group"> <div class="col-sm-5"></div><input type="submit" class=" btn btn-lg btn-warning " name="submit" value="Add" /></div>
+        
+</form>
+</div>
+{% endblock %}  

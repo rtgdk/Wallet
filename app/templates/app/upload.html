@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block body1 %}
+
+
+<link href="{% static 'css/w3.css' %}" rel="stylesheet" type="text/css">
+<div id="container1" class="container" style="padding-left: 25%;">
+   	<h4 >{{ error }}</h4>
+<form action="" enctype="multipart/form-data"  method="post">
+  {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <br/>
+  
+        <input class=" btn btn-md btn-info" type="submit" value="Upload">
+    </form>
+<h3 > Note : You have to upload Transation here in the below mentioned format.</h3>
+<h3>     Type    |    NAME   |   Amount   |   Date  </h3>
+
+
+</div>
+{% endblock %}  
