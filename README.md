@@ -5,8 +5,9 @@ A reusable app to keep your money in check.
 You can simple add income/expense or upload an excel sheet for multiple transactions.
 
 # ToDo
-Display the table with bootstrap datatable. (Easy sort and filter)
-Add an option for comments. (Model already has that field, you can change it easily)
+-Display the table with bootstrap datatable. (Easy sort and filter)
+-Add an option for comments. (Model already has that field, you can change it easily)
+-Add calendar in add option
 
 # To Run
 1. `virtualenv venv`
