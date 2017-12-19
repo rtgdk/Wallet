@@ -16,6 +16,9 @@ def index(request):
 		exp = Info.objects.filter(ttype="expense").order_by('-date')
 		context_dict["inc"] = inc
 		context_dict["exp"] = exp
+		context_dict["texpense"] = a.texpense
+		context_dict["tincome"] = a.tincome
+		context_dict["totalamount"] = a.totalamount
 		return render(request, 'app/index.html', context_dict)
 	else :
 		return HttpResponseRedirect("/app/login/")
@@ -129,6 +132,15 @@ def download(request):
 			worksheet.write_string(row,col+2,str(i.amount))
 			worksheet.write_string(row,col+3,str(i.date))
 			row+=1
+		worksheet.write_string(row,col+1,"Total Income",bold)
+		worksheet.write_string(row,col+2,str(a.tincome),bold)
+		row+=1
+		worksheet.write_string(row,col+1,"Total Spent",bold)
+		worksheet.write_string(row,col+2,str(a.texpense),bold)
+		row+=1
+		worksheet.write_string(row,col+1,"Total Fund",bold)
+		worksheet.write_string(row,col+2,str(a.totalamount),bold)
+		row+=1
 		workbook.close()
 		return HttpResponseRedirect('/media/wallet'+str(c)+'.xlsx')
 	else :

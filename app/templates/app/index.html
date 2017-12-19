@@ -13,18 +13,21 @@
       <h2>Income</h2>
        <table class="table table-bordered table-hover">
        <thead>
-       <tr><td>Amount</td>
-       	<td>Name</td>
+       <tr><td>Name</td>
+       	<td>Amount</td>
        	<td>Date</td></tr>
       </thead>	
      <tbody>
       {% for i in inc %}
       <tr>
-      <td>{{ i.amount}}</td>
-      <td><strong >{{ i.name }}</strong></td>
+      <td>{{ i.name}}</td>
+      <td>{{ i.amount }}</td>
       <td>{{i.date}}</td>
       </tr>
       {% endfor %}
+      <td><strong>Total Income</strong></td>
+      <td><strong>{{tincome}}</strong></td>
+      <td></td>
     </tbody>
   </table>
     </div>
@@ -33,21 +36,25 @@
       <h2>Expense</h2>
        <table class="table table-bordered table-hover">
        <thead>
-       <tr><td>Amount</td>
-       	<td>Name</td>
+       <tr><td>Name</td>
+       	<td>Amount</td>
        	<td>Date</td></tr>
       </thead>	
      <tbody>
       {% for i in exp %}
       <tr>
-      <td>{{ i.amount}}</td>
-      <td><strong >{{ i.name }}</strong></td>
+      <td>{{ i.name}}</td>
+      <td>{{ i.amount }}</td>
       <td>{{i.date}}</td>
       </tr>
       {% endfor %}
+      <td><strong>Total Spent</strong></td>
+      <td><strong>{{texpense}}</strong></td>
+      <td></td>
     </tbody>
   </table>
     </div>
+    <strong> Total Funds : {{totalamount}} </strong>
  </div>
  </div>
 

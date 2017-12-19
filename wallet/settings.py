@@ -25,9 +25,9 @@ STATIC_PATH = os.path.join(APP_DIR,'static')
 SECRET_KEY = '965swzm8@f&@-c_x@^%2p6d$xrs*gv#!n2*kqqts%0900%jzf!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True #False #True  #put false for production
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -75,15 +75,40 @@ WSGI_APPLICATION = 'wallet.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	'ENGINE': 'django.db.backends.postgresql_psycopg2',  #sqlite3 #postgresql_psycopg2
+        'NAME': 'darcko3oi759bv', #'dc2eakupqkiitn',
+	'USER' :  'dgvaudslurnciz',  #'cnjducipifmryw',
+	'PASSWORD' : 'dc1b889f07e6f919ffed24d62290ac1b3a7d6312611c5e36ea5211f335104ec2',  #'z8jq1Z__sGITdYPtdFEoMGbrnh',
+	'HOST' : 'ec2-23-21-236-249.compute-1.amazonaws.com', #'ec2-54-235-221-102.compute-1.amazonaws.com',
+	'PORT' : '5432',
+	
     }
+	
 }
-
-
+"""
+if DEBUG==True:
+    DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.sqlite3',  #sqlite3 #postgresql_psycopg2
+            'NAME': 'db.sqlite3', #'dc2eakupqkiitn',
+            }
+        }
+else :
+    DATABASES = {
+        'default': {
+	    'ENGINE': 'django.db.backends.postgresql_psycopg2',  #sqlite3 #postgresql_psycopg2
+            'NAME': 'darcko3oi759bv', #'dc2eakupqkiitn',
+	    'USER' :  'dgvaudslurnciz',  #'cnjducipifmryw',
+	    'PASSWORD' : 'dc1b889f07e6f919ffed24d62290ac1b3a7d6312611c5e36ea5211f335104ec2',  #'z8jq1Z__sGITdYPtdFEoMGbrnh',
+	    'HOST' : 'ec2-23-21-236-249.compute-1.amazonaws.com', #'ec2-54-235-221-102.compute-1.amazonaws.com',
+	    'PORT' : '5432',
+	
+        }
+	
+    }
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -110,7 +135,7 @@ FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Calcutta'
 
 USE_I18N = True
 
@@ -130,5 +155,7 @@ STATICFILES_DIRS = (
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = "/media/"
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+if DEBUG==False:
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'   
+LOGIN_URL = '/app/'
 
