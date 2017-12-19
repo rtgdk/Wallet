@@ -1,10 +1,10 @@
 # wallet
 A reusable app to keep your money in check.
 
-#Features
+# Features
 You can simple add income/expense or upload an excel sheet for multiple transactions.
 
-#ToDo
+# ToDo
 Display the table with bootstrap datatable. (Easy sort and filter)
 Add an option for comments. (Model already has that field, you can change it easily)
 
