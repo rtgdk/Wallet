@@ -16,4 +16,5 @@ Add an option for comments. (Model already has that field, you can change it eas
 5. `python manage.py migrate`
 6. `python manage.py createsuperuser`
 7. `python manage.py runserver`
-8. Head over to 127.0.0.1:8000/app/ or localhost:8000/app/
+8. `python populate.py`
+9. Head over to 127.0.0.1:8000/app/ or localhost:8000/app/
