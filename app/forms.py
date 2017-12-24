@@ -20,4 +20,4 @@ class UploadFileForm(forms.Form):
 class AddInfoForm(forms.ModelForm):
 	class Meta:
 		model = Info
-		fields = ('ttype','name','amount','date')
+		fields = ('ttype','name','amount')

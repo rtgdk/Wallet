@@ -2,12 +2,19 @@
 A reusable app to keep your money in check.
 
 # Features
-You can simple add income/expense or upload an excel sheet for multiple transactions.
+You can simply add income/expense or upload an excel sheet for multiple transactions. You can also download your income/expenses in an excel sheet.
+
+# Update
+- Added calendar for date picking while adding income/expenses. (24-12-2017)
+- Removed unused css and js scripts for fast loading.(24-12-2017)
+- Fixed some other bugs(24-12-2017)
 
 # ToDo
--Display the table with bootstrap datatable. (Easy sort and filter)
--Add an option for comments. (Model already has that field, you can change it easily)
--Add calendar in add option
+- Display the table with bootstrap datatable. (Easy sort and filter)
+- Add an option for comments. (Model already has that field, you can change it easily)
+- Improve front-end :(
+- Add option to download in a specific time range.
+- Proper form heading
 
 # To Run
 1. `virtualenv venv`

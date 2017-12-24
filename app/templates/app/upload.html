@@ -6,7 +6,8 @@
 
 <link href="{% static 'css/w3.css' %}" rel="stylesheet" type="text/css">
 <div id="container1" class="container" style="padding-left: 25%;">
-   	<h4 >{{ error }}</h4>
+   	<h3 style="color:red;">{{error}}</h3>
+	<h3 style="color:green;">{{success}}</h3>
 <form action="" enctype="multipart/form-data"  method="post">
   {% csrf_token %}
         <table>

@@ -3,10 +3,11 @@
 {% load staticfiles %}
 {% block body1 %}
 
-
-<link href="{% static 'css/w3.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/dcalendar.picker.css' %}" rel="stylesheet" type="text/css">
 <div id="container1" class="container" style="padding-left: 25%;">
-    <h4 >{{ error }}</h4>
+    <h3 style="color:red;">{{error}}</h3>
+  <h3 style="color:green;">{{success}}</h3>
+
 <form id="user_form" role="form"  class="form-horizontal"  method="post" action="/app/add/" enctype="multipart/form-data">
   {% csrf_token %}
         {% for field in form %}
@@ -17,9 +18,27 @@
     {{ field }}
     </div>
         </div>
+        
   {% endfor %}
+  <div class="form-group">
+  <label class="control-label col-sm-2" >Date  </label>
+  <div class="col-sm-5">
+<input class="form-control" name="date" id="demo" type="text">
+  
+  </div>
+  </div>
   <div class="form-group"> <div class="col-sm-5"></div><input type="submit" class=" btn btn-lg btn-warning " name="submit" value="Add" /></div>
         
 </form>
 </div>
 {% endblock %}  
+
+{% block script_block %}
+<script src="{% static 'js/dcalendar.picker.js' %}"></script>
+<script>
+$('#demo').dcalendarpicker({
+format:'yyyy-mm-dd'
+});
+
+</script>
+{% endblock %}

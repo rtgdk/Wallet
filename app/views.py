@@ -32,6 +32,7 @@ def add(request):
 				form = AddInfoForm(request.POST)
 				if form.is_valid():
 					user = form.save(commit=False)
+					user.date = request.POST.get('date')
 					if user.ttype =="income":
 						a.totalamount += user.amount
 						a.tincome += user.amount
@@ -40,7 +41,7 @@ def add(request):
 						a.texpense += user.amount
 					a.save()
 					user.save()
-					context_dict["error"] = "Added!"
+					context_dict["success"] = "Added!"
 					form = AddInfoForm()
 					context_dict["form"] = form
 					return render(request, 'app/add.html', context_dict)
@@ -84,7 +85,7 @@ def upload(request):
 					update()
 					form = UploadFileForm()
 					context_dict["form"] = form
-					context_dict["error"] = "Succesfully Uploaded!!"
+					context_dict["success"] = "Succesfully Uploaded!!"
 					return render(request, 'app/upload.html', context_dict)
 			except Exception as e:
 				print (e)
